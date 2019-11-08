@@ -88,7 +88,6 @@ SSLepFilter::~SSLepFilter() {
 bool SSLepFilter::filter(edm::Event& iEvent, const edm::EventSetup& iSetup) {
   using namespace edm;
 
-  bool accepted = false;
   int LepCharge = 1;
 
   Handle<HepMCProduct> evt;
@@ -103,13 +102,8 @@ bool SSLepFilter::filter(edm::Event& iEvent, const edm::EventSetup& iSetup) {
     else if ((*p)->pdg_id()==-11||(*p)->pdg_id()==-13) LepCharge *= 1;
   }
 
-  if (LepCharge == 1) accepted = true;
-
-  if (accepted) {
-    return true;
-  } else {
-    return false;
-  }
+  if (LepCharge > 0) return true;
+  else return false;
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
