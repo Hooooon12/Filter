@@ -89,7 +89,7 @@ bool SSLepFilter::filter(edm::Event& iEvent, const edm::EventSetup& iSetup) {
   using namespace edm;
 
   bool accepted = false;
-	int LepCharge = 1;
+  int LepCharge = 1;
 
   Handle<HepMCProduct> evt;
   iEvent.getByToken(token_, evt);
@@ -100,10 +100,10 @@ bool SSLepFilter::filter(edm::Event& iEvent, const edm::EventSetup& iSetup) {
     if ((*p)->status() != 1) continue;
 
     if ((*p)->pdg_id()==11||(*p)->pdg_id()==13) LepCharge *= -1;
-		else if ((*p)->pdg_id()==-11||(*p)->pdg_id()==-13) LepCharge *= 1;
+    else if ((*p)->pdg_id()==-11||(*p)->pdg_id()==-13) LepCharge *= 1;
   }
 
-	if (LepCharge == 1) accepted = true;
+  if (LepCharge == 1) accepted = true;
 
   if (accepted) {
     return true;
