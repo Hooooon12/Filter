@@ -48,11 +48,6 @@ private:
   // ----------member data ---------------------------
 
   edm::EDGetToken token_;
-  double minPt;
-  double maxEta;
-  double maxPt;
-  double minEta;
-  int particleID;
 };
 
 //
@@ -67,13 +62,7 @@ private:
 // constructors and destructor
 //
 SSLepFilter::SSLepFilter(const edm::ParameterSet& iConfig)
-    : token_(consumes<edm::HepMCProduct>(
-          edm::InputTag(iConfig.getUntrackedParameter("moduleLabel", std::string("generator")), "unsmeared"))),
-      minPt(iConfig.getUntrackedParameter("MinPt", 0.)),
-      maxEta(iConfig.getUntrackedParameter("MaxEta", 10.)),
-      maxPt(iConfig.getUntrackedParameter("MaxPt", 1000.)),
-      minEta(iConfig.getUntrackedParameter("MinEta", 0.)),
-      particleID(iConfig.getUntrackedParameter("ParticleID", 0)) {}
+    : token_(consumes<edm::HepMCProduct>(iConfig.getUntrackedParameter<edm::InputTag>("src"))) {}
 
 SSLepFilter::~SSLepFilter() {
   // do anything here that needs to be done at desctruction time

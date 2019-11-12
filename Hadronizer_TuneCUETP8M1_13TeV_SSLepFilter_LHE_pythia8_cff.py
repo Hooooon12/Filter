@@ -19,7 +19,7 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
 )
 
 SSLepFilter = cms.EDFilter("SSLepFilter",
-    src        = cms.untracked.InputTag("generator"),
+    src        = cms.untracked.InputTag("generator")
 )   
 
 ProductionFilterSequence = cms.Sequence(generator*SSLepFilter)
