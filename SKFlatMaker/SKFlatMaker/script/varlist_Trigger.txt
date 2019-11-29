@@ -1,0 +1,7 @@
+string	HLT_TriggerName	1
+string	HLT_TriggerFilterName	1
+double	HLTObject_pt	1
+double	HLTObject_eta	1
+double	HLTObject_phi	1
+string	HLTObject_FiredFilters	1
+string	HLTObject_FiredPaths	1

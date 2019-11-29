@@ -1,0 +1,3 @@
+double	PDFWeights_Scale	1
+double	PDFWeights_Error	1
+double	PDFWeights_AlphaS	1
